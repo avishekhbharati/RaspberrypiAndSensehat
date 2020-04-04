@@ -1,9 +1,8 @@
 from sense_hat import SenseHat
 from time import sleep
 
-sense = SenseHat()
 
-class Emoji:
+class Emoji:    
 
     def smiley(self):
         x = (255, 255, 255) #white
@@ -53,7 +52,10 @@ class Emoji:
         ]
         return laughing_face
 
+
+sense = SenseHat()
 emoji = Emoji()
+
 sense.set_pixels(emoji.smiley())
 sleep(3)
 sense.set_pixels(emoji.frowning())
