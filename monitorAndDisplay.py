@@ -50,4 +50,4 @@ temp_monitor = TempreatureMonitor('config.json')
 while True:
     curr_temp = temp_monitor.read_tempreature()
     temp_monitor.display_current_tempreature(curr_temp)
-    sleep(3)
+    sleep(10)
