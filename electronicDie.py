@@ -80,7 +80,7 @@ class ElectronicDie:
       ]
    
    def tick(self):
-      x = (0, 255, 0)
+      x = (0, 128, 0)
       o = (0, 0, 0)
       return [
          o, o, o, o, o, o, o, o,

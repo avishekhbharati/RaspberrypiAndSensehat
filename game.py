@@ -18,8 +18,7 @@ class Game(ElectronicDie):
         sense.clear()
 
     def show_instruction(self):
-        #msg = "Game is between two players P1 and P2. Player shakes board until display it shows tick in order to roll a die. Players to score more than {0} points first wins.".format(self.win_score)
-        msg = "Instr..."
+        msg = "Game is between two players P1 and P2. Player shakes board until display it shows tick in order to roll a die. Players to score more than {0} points first wins.".format(self.win_score)
         sense.show_message(msg)
     
     def write_to_file(self, player, time, score):

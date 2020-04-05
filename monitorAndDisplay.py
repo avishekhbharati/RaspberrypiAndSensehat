@@ -5,9 +5,9 @@ import json
 
 class TempreatureMonitor:
     
-    RED_COLOR = [255, 0, 0]
-    GREEN_COLOR = [0, 255, 0]
-    BLUE_COLOR = [0, 0, 255]
+    RED_COLOR = [128, 0, 0]
+    GREEN_COLOR = [0, 128, 0]
+    BLUE_COLOR = [0, 0, 128]
 
     def __init__(self, filename):
         data = self.read_from_file(filename)
