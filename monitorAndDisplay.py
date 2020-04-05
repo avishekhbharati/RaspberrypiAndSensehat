@@ -5,9 +5,9 @@ import json
 
 class TempreatureMonitor:
     
-    RED_COLOR = [255, 0, 0]
-    GREEN_COLOR = [0, 255, 0]
-    BLUE_COLOR = [0, 0, 255]
+    RED_COLOR = [130, 0, 0]
+    GREEN_COLOR = [0, 130, 0]
+    BLUE_COLOR = [0, 0, 130]
 
     def __init__(self, filename):
         data = self.read_from_file(filename)
@@ -33,8 +33,7 @@ class TempreatureMonitor:
     
     def display_current_tempreature(self, temp):
         #check the tempreature and set color
-        self.sense.clear()
-        
+        self.sense.clear()        
         str_format = str(temp) + "C"
         
         #here max value is inclusive
