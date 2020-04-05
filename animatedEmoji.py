@@ -4,7 +4,7 @@ from time import sleep
 class Emoji:    
 
     def smiley(self):
-        x = (225, 225, 225) #white
+        x = (128, 128, 128) #white
         o = (0, 128, 0) # Green
         w = (0, 0, 128) # blue
         smiley_face = [            
