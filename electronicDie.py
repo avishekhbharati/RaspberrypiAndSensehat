@@ -113,23 +113,23 @@ class ElectronicDie:
          x = abs(acceleration['x'])
          y = abs(acceleration['y'])
          z = abs(acceleration['z'])
-
+         
+         #detects as being shaked if one of the value exceed 2.
          if x > 2 or y > 2 or z > 2:
-            print("x={0}, y={1}, z={2}".format(x,y,z))
             sense.set_pixels(self.tick())
             sleep(2)
             break
          else:
             sense.show_letter("?", (255, 0, 0))
 
-
+   #generates random number
    def generate_randomnumber(self, faces):
       #last number is exclusive. so add 1.
       return random.randrange(1, faces + 1)
    
-
+   #displays die faces in led matrix
    def display_die(self, number):
       try:
          sense.set_pixels(self.get_die_faces(number))
       except:
-         print("Die number is not in the range. Input Number: {0}".format(number))
+         print("Invalid Input. Input Number: {0}".format(number))
