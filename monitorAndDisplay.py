@@ -10,29 +10,35 @@ class TempreatureMonitor:
     BLUE_COLOR = [0, 0, 130]
 
     def __init__(self, filename):
+        self.sense = SenseHat()
         data = self.read_from_file(filename)
         self.cold_max = data['cold_max']
         self.comfortable_min = data['comfortable_min']
         self.comfortable_max = data['comfortable_max']
         self.hot_min = data['hot_min']
-        self.sense = SenseHat()
-    
-    
-    def test_values(self):
-        print(self.cold_max)
 
-
+    #reads from json file. If corrupted uses default values
     def read_from_file(self, filename):
-        f = open(filename, 'r')
-        return json.loads(f.read())
+        try:
+            f = open(filename, 'r')
+            return json.loads(f.read())
+        except:
+            self.sense.show_message("Error in reading json file: Using default values.")
+            default_values = {
+                "cold_max": 10,
+                "comfortable_min": 10,
+                "comfortable_max": 25,
+                "hot_min": 25
+            }
+        return default_values
 
-
+    #rounds up tempreature to two digits.
     def read_tempreature(self):
         return round(self.sense.get_temperature(), 2)
 
     
+    #check the tempreature and set color
     def display_current_tempreature(self, temp):
-        #check the tempreature and set color
         self.sense.clear()        
         str_format = str(temp) + "C"
         

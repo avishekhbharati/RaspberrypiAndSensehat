@@ -1,8 +1,9 @@
 from sense_hat import SenseHat
 from time import sleep
 
-class Emoji:    
 
+class Emoji:    
+    #displays smiley
     def smiley(self):
         x = (128, 128, 128) #white
         o = (0, 128, 0) # Green
@@ -19,6 +20,7 @@ class Emoji:
         ]
         return smiley_face
     
+    #displaying frowning emoji
     def frowning(self):
         x = (128, 0, 0) #red
         o = (0, 0, 128) # blue
@@ -35,6 +37,7 @@ class Emoji:
         ]
         return frowning_face
 
+    #displays laughing emoji
     def laughing(self):
         x = (100,100,0) #yellow
         o = (200, 100, 200)
@@ -49,16 +52,21 @@ class Emoji:
             x, x, w, w, w, w, x, x,
             x, x, x, x, x, x, x, x
         ]
-        return laughing_face        
+        return laughing_face   
+
+    #displays emojis with 3 seconds interval
+    def display_emojis(self):
+        sense = SenseHat()
+
+        sense.set_pixels(emoji.smiley())
+        sleep(3)
+        sense.set_pixels(emoji.frowning())
+        sleep(3)
+        sense.set_pixels(emoji.laughing())
+        sleep(3)
+        #clears the led board
+        sense.clear()
 
 
-sense = SenseHat()
 emoji = Emoji()
-
-sense.set_pixels(emoji.smiley())
-sleep(3)
-sense.set_pixels(emoji.frowning())
-sleep(3)
-sense.set_pixels(emoji.laughing())
-sleep(3)
-sense.clear()
+emoji.display_emojis()
